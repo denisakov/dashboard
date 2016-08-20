@@ -208,43 +208,57 @@ $.fn.serializeObject = function() {
 
 </head>
 <body>
-<div id="page" class="hfeed site">
+        <div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="assets"><a href="#assets" aria-controls="assets" role="tab" data-toggle="tab">assets</a></li>
+                        <li role="presentation"><a href="#expenses" aria-controls="expenses" role="tab" data-toggle="tab">expenses</a></li>
+                        <li role="presentation"><a href="#targets" aria-controls="targets" role="tab" data-toggle="tab">targets</a></li>
+                </ul>
 
-        <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="#">Home</a></li>
-          <li role="presentation"><a href="#">Profile</a></li>
-          <li role="presentation"><a href="#">Messages</a></li>
-        </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="assets">
 
-  <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps Script Execution API</span> 
-    <!--Button for the user to click to initiate auth sequence -->
-    <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
-  </div>
-  <pre id="output"></pre>
-  <div id="respond" class="comment-respond">
-    <form id="foo">
-      <p>
-        <label for="name">Name:</label>
-        <input id="name" name="name" type="text" value="" disabled/>
-      </p>
-      <p>
-        <label for="comment">Comment:</label>
-        <br/>
-        <textarea id="comment" name="comment" cols="40" disabled></textarea>
-      </p>
-      <p align="center"><strong>Please note:</strong> By submitting this form by clicking 'Send' you permit your email address (displayed in an obscured format), name and comment will be recorded and displayed below. Your email address will not be used in any other way (e.g. direct marketing)</p>
-      
-      <button type="submit" value="Send" class="btn btn-default">Submit</button>
-    </form>
-  </div>
-  <div id="comments" class="comments-area">
-    <div id="loading" style="display:none">
-      <article>Loading...</article>
-    </div>
-    <ol class="commentlist" id="commentlist">
-    </ol>
-  </div>
-</div>
+                               <div id="page" class="hfeed site">
+                                  <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps Script Execution API</span> 
+                                    <!--Button for the user to click to initiate auth sequence -->
+                                    <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
+                                  </div>
+                                  <pre id="output"></pre>
+                                  <div id="respond" class="comment-respond">
+                                    <form id="foo">
+                                      <p>
+                                        <label for="name">Name:</label>
+                                        <input id="name" name="name" type="text" value="" disabled/>
+                                      </p>
+                                      <p>
+                                        <label for="comment">Comment:</label>
+                                        <br/>
+                                        <textarea id="comment" name="comment" cols="40" disabled></textarea>
+                                      </p>
+                                      <p align="center"><strong>Please note:</strong> By submitting this form by clicking 'Send' you permit your email address (displayed in an obscured format), name and comment will be recorded and displayed below. Your email address will not be used in any other way (e.g. direct marketing)</p>
+                                      
+                                      <button type="submit" value="Send" class="btn btn-default">Submit</button>
+                                    </form>
+                                  </div>
+                                  <div id="comments" class="comments-area">
+                                    <div id="loading" style="display:none">
+                                      <article>Loading...</article>
+                                    </div>
+                                    <ol class="commentlist" id="commentlist">
+                                    </ol>
+                                  </div>
+                                </div> 
+
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="expenses">...</div>
+                        <div role="tabpanel" class="tab-pane" id="targets">...</div>
+                </div>
+
+        </div>
+
 </body>
 <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 
