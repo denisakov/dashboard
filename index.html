@@ -133,7 +133,8 @@ function handleGetDataResponse(resp) {
         // Script function returns. 
         console.log(resp);
         var expenses = resp.response.result.expenses;
-        if (Object.keys(expenses).length == 0) {
+        console.log(expenses);
+        if (Object.keys(response).length == 0) {
             appendPre('No expenses included!');
         } else {
             drawChart(expenses);
