@@ -42,7 +42,7 @@ function drawChart(d) {
         var options = {
           title: 'Expenses'
         };
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.Table(document.getElementById('table'));
         chart.draw(dataTable, options);
 }
 
@@ -259,7 +259,7 @@ $.fn.serializeObject = function() {
                           </div>
                           <div id="output"></div>
                           
-                          <div id="expenses" class="piechart">
+                          <div id="table" class="expenses">
                             <div id="loading" style="display:none">
                               <article>Loading...</article>
                             </div>
