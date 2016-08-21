@@ -31,9 +31,10 @@ function valuesToArray(obj) {
 }
 
 function drawChart(data) {
-        console.log(typeof data);
-        data = valuesToArray(data);
-        var dataTable = google.visualization.arrayToDataTable(data);
+        
+        var data1 = valuesToArray(data);
+        console.log(typeof data1);
+        var dataTable = google.visualization.arrayToDataTable(data1);
         var options = {
           title: 'Expenses'
         };
