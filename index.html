@@ -1,25 +1,46 @@
 <html>
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript"  src="https://www.google.com/jsapi"></script>
 
 <title>Google Sheets as a Database</title>
 <script type="text/javascript">
+
+// Load the Visualization API and desired package(s).
+google.load('visualization', '1.0', {'packages':['corechart','table']});
+google.setOnLoadCallback(drawChart);
 // Your Client ID can be retrieved from your project in the Google
 // Developer Console, https://console.developers.google.com
-var CLIENT_ID = '442849890788-fhci3u8o7kb24kl2hf4ehs010gaqsch4.apps.googleusercontent.com';
+//var CLIENT_ID = '442849890788-fhci3u8o7kb24kl2hf4ehs010gaqsch4.apps.googleusercontent.com';
+var CLIENT_ID_DASH = '689505378876-4orhjal3dio2luar4quflkfvmfh3n41k.apps.googleusercontent.com';
 
 
-var SCRIPT_ID = '1qdAg8TjDF5Gw4Yu02VBNfu2j7JMPsSixbKXmAfMEnfSHrfmh8jqRqq_R';
+//var SCRIPT_ID = '1qdAg8TjDF5Gw4Yu02VBNfu2j7JMPsSixbKXmAfMEnfSHrfmh8jqRqq_R';
+var SCRIPT_ID_DASH = '1XQQH0QEiJB2Lcpf7EhTzNbw30qrtDw4amQnTfDvbq1HtMisKnto3SXsp';
 
 var SCOPES = ['https://www.googleapis.com/auth/spreadsheets',
               'https://www.googleapis.com/auth/userinfo.email'];
+
+//redraw graph when window resize is completed  
+$(window).on('resizeEnd', function() {
+        sendQuery();
+});
+
+function drawChart(data) {
+        var dataTable = google.visualization.arrayToDataTable(data);
+        var options = {
+          title: 'Expenses'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(dataTable, options);
+}
 
 /**
  * Check if current user has authorized this application.
  */
 function checkAuth() {
     gapi.auth.authorize({
-        'client_id': CLIENT_ID,
+        'client_id': CLIENT_ID_DASH,
         'scope': SCOPES,
         'immediate': true
     }, handleAuthResult);
@@ -51,8 +72,9 @@ function handleAuthResult(authResult) {
  * @param {Event} event Button click event.
  */
 function handleAuthClick(event) {
+        
     gapi.auth.authorize({
-            client_id: CLIENT_ID,
+            client_id: CLIENT_ID_DASH,
             scope: SCOPES,
             immediate: false
         },
@@ -73,7 +95,7 @@ function callScriptFunction() {
     // Make the API request.
     var op = gapi.client.request({
         'root': 'https://script.googleapis.com',
-        'path': 'v1/scripts/' + SCRIPT_ID + ':run',
+        'path': 'v1/scripts/' + SCRIPT_ID_DASH + ':run',
         'method': 'POST',
         'body': request
     });
@@ -109,16 +131,12 @@ function handleGetDataResponse(resp) {
     } else {
         // The structure of the result will depend upon what the Apps
         // Script function returns. 
-        console.log(resp.response.result);
-        var comments = resp.response.result.comments;
-        if (Object.keys(comments).length == 0) {
-            appendPre('No comments returned!');
+        console.log(resp.data);
+        var expenses = resp.data.expenses;
+        if (Object.keys(expenses).length == 0) {
+            appendPre('No expenses included!');
         } else {
-            var ul = document.getElementById('commentlist')
-            ul.innerHTML = '';
-            Object.keys(comments).forEach(function(id) {
-                appendComment(comments[id]);
-            });
+            drawChart(data);
             var loadDiv = document.getElementById('loading');
             loadDiv.style.display = 'none';
         }
@@ -144,7 +162,7 @@ jQuery(document).ready(function($) {
         // Make the API request.
         var op = gapi.client.request({
             'root': 'https://script.googleapis.com',
-            'path': 'v1/scripts/' + SCRIPT_ID + ':run',
+            'path': 'v1/scripts/' + SCRIPT_ID_DASH + ':run',
             'method': 'POST',
             'body': request
         });
@@ -222,40 +240,24 @@ $.fn.serializeObject = function() {
                 <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="assets">
 
-                               <div id="page" class="hfeed site">
-                                  <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps Script Execution API</span> 
+                        Nothing to see yet
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="expenses">
+                                
+                                  <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps</span> 
                                     <!--Button for the user to click to initiate auth sequence -->
                                     <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
                                   </div>
                                   <div id="output"></div>
-                                  <div id="respond" class="comment-respond">
-                                    <form id="foo">
-                                      <p>
-                                        <label for="name">Name:</label>
-                                        <input id="name" name="name" type="text" value="" disabled/>
-                                      </p>
-                                      <p>
-                                        <label for="comment">Comment:</label>
-                                        <br/>
-                                        <textarea id="comment" name="comment" cols="40" disabled></textarea>
-                                      </p>
-                                      <p align="center"><strong>Please note:</strong> By submitting this form by clicking 'Send' you permit your email address (displayed in an obscured format), name and comment will be recorded and displayed below. Your email address will not be used in any other way (e.g. direct marketing)</p>
-                                      
-                                      <button type="submit" value="Send" class="btn btn-default">Submit</button>
-                                    </form>
-                                  </div>
-                                  <div id="comments" class="comments-area">
+                                  
+                                  <div id="expenses" class="piechart">
                                     <div id="loading" style="display:none">
                                       <article>Loading...</article>
                                     </div>
-                                    <ol class="commentlist" id="commentlist">
-                                    </ol>
                                   </div>
-                                </div> 
-
-
+                                
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="expenses">...</div>
                         <div role="tabpanel" class="tab-pane" id="targets">...</div>
                 </div>
             </div>
