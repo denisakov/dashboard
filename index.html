@@ -26,13 +26,9 @@ $(window).on('resizeEnd', function() {
         drawChart();
 });
 
-function valuesToArray(obj) {
-  return Object.keys(obj).map(function (key) { return obj[key]; });
-}
-
 function drawChart(data) {
         
-        var data1 = valuesToArray(data);
+        var data1 = Object.keys(data).map(function (key) { return data[key]; });
         console.log(typeof data1);
         var dataTable = google.visualization.arrayToDataTable(data1);
         var options = {
