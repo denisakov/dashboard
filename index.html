@@ -29,7 +29,7 @@ $(window).on('resizeEnd', function() {
 function drawChart(data) {
         
         console.log(typeof data);
-        var dataTable = google.visualization.DataTable();
+        var dataTable = new google.visualization.DataTable();
 
         for (var i = 0; i < data[0].length; i++){
                 dataTable.addColumn(data[0][i]);
