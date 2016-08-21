@@ -202,11 +202,15 @@ $.fn.serializeObject = function() {
         font-weight: 500;
         font-family: Times;
 }
+.most-top {
+        padding-top:15px;
+}
 </style>
 
 </head>
 <body>
-        <div>
+        <div class="row most-top">
+           <div class="col-md-6 col-md-offset-3">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="assets"><a href="#assets" aria-controls="assets" role="tab" data-toggle="tab">assets</a></li>
@@ -254,6 +258,7 @@ $.fn.serializeObject = function() {
                         <div role="tabpanel" class="tab-pane" id="expenses">...</div>
                         <div role="tabpanel" class="tab-pane" id="targets">...</div>
                 </div>
+            </div>
 
         </div>
 
