@@ -23,7 +23,7 @@ var SCOPES = ['https://www.googleapis.com/auth/spreadsheets',
 
 //redraw graph when window resize is completed  
 $(window).on('resizeEnd', function() {
-        sendQuery();
+        drawChart();
 });
 
 function drawChart(data) {
@@ -131,12 +131,12 @@ function handleGetDataResponse(resp) {
     } else {
         // The structure of the result will depend upon what the Apps
         // Script function returns. 
-        console.log(resp.data);
-        var expenses = resp.data.expenses;
+        console.log(resp.expenses);
+        var expenses = resp.expenses.data;
         if (Object.keys(expenses).length == 0) {
             appendPre('No expenses included!');
         } else {
-            drawChart(data);
+            drawChart(expenses);
             var loadDiv = document.getElementById('loading');
             loadDiv.style.display = 'none';
         }
@@ -231,31 +231,31 @@ $.fn.serializeObject = function() {
            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="assets"><a href="#assets" aria-controls="assets" role="tab" data-toggle="tab">assets</a></li>
-                        <li role="presentation"><a href="#expenses" aria-controls="expenses" role="tab" data-toggle="tab">expenses</a></li>
+                        <li role="presentation" class="expenses"><a href="#expenses" aria-controls="expenses" role="tab" data-toggle="tab">expenses</a></li>
+                        <li role="presentation"><a href="#assets" aria-controls="assets" role="tab" data-toggle="tab">assets</a></li>
                         <li role="presentation"><a href="#targets" aria-controls="targets" role="tab" data-toggle="tab">targets</a></li>
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="assets">
+                        <div role="tabpanel" class="tab-pane active" id="expenses">
 
-                        Nothing to see yet
+                          <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps</span> 
+                            <!--Button for the user to click to initiate auth sequence -->
+                            <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
+                          </div>
+                          <div id="output"></div>
+                          
+                          <div id="expenses" class="piechart">
+                            <div id="loading" style="display:none">
+                              <article>Loading...</article>
+                            </div>
+                          </div>
 
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="expenses">
+                        <div role="tabpanel" class="tab-pane" id="assets">
                                 
-                                  <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps</span> 
-                                    <!--Button for the user to click to initiate auth sequence -->
-                                    <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
-                                  </div>
-                                  <div id="output"></div>
-                                  
-                                  <div id="expenses" class="piechart">
-                                    <div id="loading" style="display:none">
-                                      <article>Loading...</article>
-                                    </div>
-                                  </div>
+                        Nothing here yet
                                 
                         </div>
                         <div role="tabpanel" class="tab-pane" id="targets">...</div>
