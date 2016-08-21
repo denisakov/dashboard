@@ -29,7 +29,7 @@ $(window).on('resizeEnd', function() {
 function drawChart(d) {
         
         var data = Object.keys(d).map(function (key) {return d[key]});
-        console.log(data[0]);
+ //       console.log(data[0]);
         var dataTable = google.visualization.arrayToDataTable(data);
 
         var options = {
@@ -168,9 +168,10 @@ function handleGetDataResponse(resp) {
         if (Object.keys(expenses).length == 0) {
             appendPre('No expenses included!');
         } else {
-            drawChart(expenses);
+            
             var loadDiv = document.getElementById('loading');
             loadDiv.style.display = 'none';
+            drawChart(expenses);
         }
     }
 }
@@ -270,7 +271,7 @@ $.fn.serializeObject = function() {
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="expenses">
+                        <div role="tabpanel" class="tab-pane active in" id="expenses">
 
                           <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps</span> 
                             <!--Button for the user to click to initiate auth sequence -->
