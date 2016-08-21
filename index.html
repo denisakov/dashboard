@@ -30,14 +30,7 @@ function drawChart(d) {
         
         var data = Object.keys(d).map(function (key) {return d[key]});
         console.log(data[0]);
-        var dataTable = new google.visualization.DataTable();
-
-        for (var i = 0; i < data[0].length; i++){
-                dataTable.addColumn(data[0][i]);
-        }
-        for (var i = 1; i < data.length; i++){
-                dataTable.addRow(data[i]);
-        }
+        var dataTable = google.visualization.arrayToDataTable(data);
 
         var options = {
 /*            title:title4 + ' of the Free Zone',
