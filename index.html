@@ -26,8 +26,9 @@ $(window).on('resizeEnd', function() {
         drawChart();
 });
 
-function drawChart(data) {
+function drawChart(d) {
         
+        var data = Object.keys(d).map(function (key) {return d[key]});
         console.log(data[0]);
         var dataTable = new google.visualization.DataTable();
 
