@@ -28,8 +28,16 @@ $(window).on('resizeEnd', function() {
 
 function drawChart(data) {
         
-        console.log(typeof JSON.parse(data));
-        var dataTable = google.visualization.arrayToDataTable(JSON.parse(data));
+        console.log(typeof data;
+        var dataTable = google.visualization.DataTable();
+
+        for (var i = 0; i < data[0].length; i++){
+                dataTable.addColumn(data[0][i]);
+        }
+        for (var i = 1; i < data.length; i++){
+                dataTable.addRow(data[i]);
+        }
+
         var options = {
           title: 'Expenses'
         };
