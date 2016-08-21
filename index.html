@@ -28,8 +28,8 @@ $(window).on('resizeEnd', function() {
 
 function drawChart(data) {
         
-        var data1 = Object.keys(data).map(function (key) { return data{key}; });
-        console.log(typeof data1);
+        var data1 = Object.keys(data).map(function (key) { return data[key]; });
+        console.log(typeof data1, data1);
         var dataTable = google.visualization.arrayToDataTable(data1);
         var options = {
           title: 'Expenses'
