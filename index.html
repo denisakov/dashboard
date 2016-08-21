@@ -40,8 +40,34 @@ function drawChart(d) {
         }
 
         var options = {
-          title: 'Expenses'
-        };
+/*            title:title4 + ' of the Free Zone',
+              fontSize: 16,
+              bold: true,
+              italic: false,
+*/
+              allowHtml: true,
+//              width: '100%',
+//              heigth: '100%',
+              alternatingRowStyle: false,
+              cssClassNames: {
+                              headerRow: 'header-row',
+                              tableRow: 'table-row',
+                              oddTableRow: 'odd-table-row',
+                              selectedTableRow: 'selected-table-row',
+                              hoverTableRow: 'hover-table-row',
+                              headerCell: 'header-cell',
+                              tableCell: 'table-cell',
+                              rowNumberCell: 'row-number-cell'
+                              }
+ /*             headerRow - Assigns a class name to the table header row (<tr> element).
+              tableRow - Assigns a class name to the non-header rows (<tr> elements).
+              oddTableRow - Assigns a class name to odd table rows (<tr> elements). Note: the alternatingRowStyle option must be set to true.
+              selectedTableRow - Assigns a class name to the selected table row (<tr> element).
+              hoverTableRow - Assigns a class name to the hovered table row (<tr> element).
+              headerCell - Assigns a class name to all cells in the header row (<td> element).
+              tableCell - Assigns a class name to all non-header table cells (<td> element).
+              rowNumberCell - Assigns a class name to the cells in the row number column (<td> element). Note: the showRowNumber option must be set to true.*/
+             };
         var chart = new google.visualization.Table(document.getElementById('table'));
         chart.draw(dataTable, options);
 }
