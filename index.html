@@ -132,7 +132,7 @@ function handleGetDataResponse(resp) {
         // The structure of the result will depend upon what the Apps
         // Script function returns. 
         console.log(resp);
-        var expenses = resp.result.expenses;
+        var expenses = resp.response.result.expenses;
         if (Object.keys(expenses).length == 0) {
             appendPre('No expenses included!');
         } else {
