@@ -61,8 +61,15 @@ function drawChart(d) {
               tableCell - Assigns a class name to all non-header table cells (<td> element).
               rowNumberCell - Assigns a class name to the cells in the row number column (<td> element). Note: the showRowNumber option must be set to true.*/
              };
-        var chart = new google.visualization.Table(document.getElementById('table'));
-        chart.draw(dataTable, options);
+        var table = new google.visualization.Table(document.getElementById('table'));
+        table.draw(dataTable, options);
+
+        google.visualization.events.addListener(table, 'select', selectHandler);
+
+}
+
+function selectHandler(e) {
+  alert('A table row was selected');
 }
 
 /**
@@ -302,11 +309,11 @@ h2{color:#0b56a8;}
  
  .container .text-style-pills
 {
-  margin: 15px 15px 5px 0;
+  margin: 25px 15px 5px 0;
 }
 .container .text-style
 {
-  margin: 60px 15px 0 0;
+  margin: 70px 15px 0 0;
 }
 
 </style>
