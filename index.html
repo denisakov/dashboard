@@ -432,34 +432,36 @@ h2{color:#0b56a8;}
                 </div>
             </div>
             <div class="tab-pane text-style" id="tab3">
-                <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps</span> 
-                    <!--Button for the user to click to initiate auth sequence -->
-                    <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
-                </div>
-                <div id="output">
+                <div class="col-sm-8">
+                    <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps</span> 
+                        <!--Button for the user to click to initiate auth sequence -->
+                        <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
+                    </div>
+                    <div id="output">
+                        
+                    </div>
+                      
+                    <div id="table" class="expenses">
+                        <div id="loading" style="display:none">
+                          <article>Loading...</article>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
                     
-                </div>
-                  
-                <div id="table" class="expenses">
-                    <div id="loading" style="display:none">
-                      <article>Loading...</article>
                     </div>
-                </div>
-                <div class="col-xs-10">
-                    <p></p>
-                </div>
-                <div class="row">
-                    <div class="col-xs-2">
-                        <input type="text" class="form-control input-sm" placeholder="Description">
-                    </div>
-                    <div class="col-xs-2">
-                        <input type="text" class="form-control input-sm" placeholder="Reason">
-                    </div>
-                    <div class="col-xs-2">
-                        <input type="text" class="form-control input-sm" placeholder="Monthly amount">
-                    </div>
-                    <div class="col-xs-2">
-                        <input class="btn btn-primary btn-sm" type="submit" value="Submit">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control input-sm" placeholder="Description">
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control input-sm" placeholder="Reason">
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control input-sm" placeholder="Monthly amount">
+                        </div>
+                        <div class="col-xs-2">
+                            <input class="btn btn-primary btn-sm" type="submit" value="Submit">
+                        </div>
                     </div>
                 </div>
             </div>
