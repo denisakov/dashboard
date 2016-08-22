@@ -9,6 +9,7 @@
 // Load the Visualization API and desired package(s).
 google.load('visualization', '1.0', {'packages':['corechart','table']});
 google.setOnLoadCallback(drawChart);
+google.visualization.events.addListener(table, 'select', selectHandler);
 // Your Client ID can be retrieved from your project in the Google
 // Developer Console, https://console.developers.google.com
 //var CLIENT_ID = '442849890788-fhci3u8o7kb24kl2hf4ehs010gaqsch4.apps.googleusercontent.com';
@@ -64,7 +65,7 @@ function drawChart(d) {
         var table = new google.visualization.Table(document.getElementById('table'));
         table.draw(dataTable, options);
 
-        google.visualization.events.addListener(table, 'select', selectHandler);
+        
 
 }
 
