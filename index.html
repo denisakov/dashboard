@@ -245,14 +245,7 @@ $.fn.serializeObject = function() {
 </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style>
-.comments-area article header cite, .comments-area article header time {
-    margin-left:0px;
-}
 
-.commentlist {
-        font-weight: 500;
-        font-family: Times;
-}
 .most-top {
         padding-top:15px;
 }
@@ -323,9 +316,11 @@ h2{color:#0b56a8;}
         <div class="col-sm-2">
             <nav class="nav-sidebar">
                 <ul class="nav tabs">
-                  <li class="active"><a href="#tab1" data-toggle="tab">Assets</a></li>
-                  <li class=""><a href="#tab2" data-toggle="tab">Expenses</a></li>
-                  <li class=""><a href="#tab3" data-toggle="tab">Targets</a></li>                               
+                    <li class="active"><a href="#tab1" data-toggle="tab">Income</a></li>
+                    <li class=""><a href="#tab2" data-toggle="tab">Assets</a></li>
+                    <li class=""><a href="#tab3" data-toggle="tab">Expenses</a></li>
+                    <li class=""><a href="#tab4" data-toggle="tab">Liabilities</a></li>
+                    <li class=""><a href="#tab5" data-toggle="tab">Targets</a></li>                               
                 </ul>
             </nav>
                 <div>
@@ -337,53 +332,81 @@ h2{color:#0b56a8;}
         <!-- tab content -->
         <div class="tab-content">
             <div class="tab-pane active text-style" id="tab1">
-      
-                <!-- Nav tabs -->
-                <ul class="nav nav-pills" role="tablist">
-                        <li role="presentation" class="#expenses active"><a href="#expenses" aria-controls="expenses" role="tab" data-toggle="tab">expenses</a></li>
-                        <li role="presentation"><a href="#assets" aria-controls="assets" role="tab" data-toggle="tab">assets</a></li>
-                        <li role="presentation"><a href="#targets" aria-controls="targets" role="tab" data-toggle="tab">targets</a></li>
-                </ul>
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-pills" role="tablist">
+                            <li role="presentation" class="#salary active"><a href="#salary" aria-controls="salary" role="pill" data-toggle="tab">Salary</a></li>
+                            <li role="presentation"><a href="#real_estate" aria-controls="real_estate" role="pill" data-toggle="tab">Real estate</a></li>
+                            <li role="presentation"><a href="#businesses" aria-controls="businesses" role="pill" data-toggle="tab">Businesses</a></li>
+                    </ul>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade active in" id="expenses">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade active in" id="salary">
 
-                            <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps</span> 
-                                <!--Button for the user to click to initiate auth sequence -->
-                                <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
-                            </div>
-                            <div id="output">
                                 
                             </div>
-                              
-                            <div id="table" class="expenses">
-                                <div id="loading" style="display:none">
-                                  <article>Loading...</article>
-                                </div>
+                            <div role="tabpanel" class="tab-pane" id="real_estate">
+                                    
+                            Nothing here yet
+                                    
                             </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="assets">
-                                
-                        Nothing here yet
-                                
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="targets">...</div>
+                            <div role="tabpanel" class="tab-pane" id="businesses">...</div>
+                    </div>
                 </div>
             </div>
             <div class="tab-pane text-style" id="tab2">
-                <h2>Dolor asit amet</h2>
-                <p>Dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                <hr>
-                <img src="http://placehold.it/150x90" class="img-rounded pull-left">
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-pills" role="tablist">
+                            <li role="presentation" class="#savings active"><a href="#savings" aria-controls="savings" role="pill" data-toggle="tab">Savings</a></li>
+                            <li role="presentation"><a href="#stocks" aria-controls="stocks" role="pill" data-toggle="tab">Stocks</a></li>
+                            <li role="presentation"><a href="#real_estate" aria-controls="real_estate" role="pill" data-toggle="tab">Real estate</a></li>
+                            <li role="presentation"><a href="#businesses" aria-controls="businesses" role="pill" data-toggle="tab">Businesses</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade active in" id="savings">
+
+                                
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="stocks">
+                                    
+                            Nothing here yet
+                                    
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="real_estate">
+                                    
+                            Nothing here yet
+                                    
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="businesses">...</div>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane text-style" id="tab3">
-                <h2>Stet clita</h2>
-                <p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</p>
-                <hr>
-                <div class="col-xs-6 col-md-3">
-                <img src="http://placehold.it/150x150" class="img-rounded pull-right">
+                <div id="authorize-div" style="display: none"> <span>Authorize access to Google Apps</span> 
+                    <!--Button for the user to click to initiate auth sequence -->
+                    <button id="authorize-button" onclick="handleAuthClick(event)"> Authorize </button>
+                </div>
+                <div id="output">
+                    
+                </div>
+                  
+                <div id="table" class="expenses">
+                    <div id="loading" style="display:none">
+                      <article>Loading...</article>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane text-style" id="tab4">
+                
+                <p>Liabilities</p>
+            </div>
+            <div class="tab-pane text-style" id="tab5">
+                
+                <p>Targets</p>
             </div>
         </div>
     </div>
