@@ -30,7 +30,7 @@ $(window).on('resizeEnd', function() {
 function drawChart(d) {
         
         var data = Object.keys(d).map(function (key) {return d[key]});
- //       console.log(data[0]);
+        console.log(data);
         var dataTable = google.visualization.arrayToDataTable(data);
         console.log(dataTable);
 
