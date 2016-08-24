@@ -30,7 +30,7 @@ $(window).on('resizeEnd', function() {
 function drawChart(d) {
         
         var data = Object.keys(d).map(function (key) {return d[key]});
-        console.log(data);
+//        console.log(data);
         var dataTable = google.visualization.arrayToDataTable(data);
         console.log(dataTable);
 
@@ -71,6 +71,7 @@ function drawChart(d) {
                         var message = '';
                         for (var i = 0; i < selection.length; i++) {
                             var item = selection[i];
+                            console.log(selection[i]);
                             if (item.row != null && item.column != null) {
                                 var str = dataTable.getFormattedValue(item.row, item.column);
                                 message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
