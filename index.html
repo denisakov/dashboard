@@ -219,6 +219,7 @@ function handleGetDataResponse(resp) {
 jQuery(document).ready(function($) {
     $('#expenses_edit').find("input, select, button, textarea").prop("disabled", false);
     $('#expenses_edit').submit(function(event) {
+        alert('Hit the function!');
         $form = $('#expenses_edit');
         var $inputs = $form.find("input, select, button, textarea");
         // serialize the data in the form
