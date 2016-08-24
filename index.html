@@ -32,7 +32,7 @@ function drawChart(d) {
         var data = Object.keys(d).map(function (key) {return d[key]});
  //       console.log(data[0]);
         var dataTable = google.visualization.arrayToDataTable(data);
-        
+        console.log(dataTable);
 
         var options = {
 //            title:title4 + ' of the Free Zone',
@@ -92,29 +92,7 @@ function drawChart(d) {
 
 }
 
-/*function selectHandler(e) {
-    console.log(e);
-    var selection = table.getSelection();
-      var message = '';
-      for (var i = 0; i < selection.length; i++) {
-        var item = selection[i];
-        if (item.row != null && item.column != null) {
-          var str = data.getFormattedValue(item.row, item.column);
-          message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
-        } else if (item.row != null) {
-          var str = data.getFormattedValue(item.row, 0);
-          message += '{row:' + item.row + ', column:none}; value (col 0) = ' + str + '\n';
-        } else if (item.column != null) {
-          var str = data.getFormattedValue(0, item.column);
-          message += '{row:none, column:' + item.column + '}; value (row 0) = ' + str + '\n';
-        }
-      }
-      if (message == '') {
-        message = 'nothing';
-      }
-      alert('You selected ' + message);
-}
-*/
+
 /**
  * Check if current user has authorized this application.
  */
@@ -447,7 +425,7 @@ h2{color:#0b56a8;}
                         </div>
                     </div>
                     <div class="col-xs-12">
-                    
+                    <p> </p>
                     </div>
                     <div class="row">
                         <div class="col-xs-2">
