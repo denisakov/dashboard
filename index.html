@@ -227,8 +227,8 @@ jQuery(document).ready(function($) {
         // Create an execution request object.
         // Create execution request.
 
-        console.log($form.input);
-        console.log("the data is: " + serializedData.values);
+        console.log($inputs.length);
+        console.log("the data is: " + serializedData[0][0]);
         var request = {
             'function': 'setData',
             'parameters': serializedData,
