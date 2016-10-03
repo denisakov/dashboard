@@ -220,10 +220,10 @@ jQuery(document).ready(function($) {
     $('#expenses_edit').find("input, select, button, textarea").prop("disabled", false);
     $('#expenses_edit').submit(function(event) {
         //alert('Hit the function!');
-        $form = $(this);
-        var $inputs = $form.find("input");
+        //$form = $(this);
+        //var $inputs = $form.find("input");
         // serialize the data in the form
-        var serializedData = $inputs.serialize();
+        var serializedData = $(this).serialize();
         
         // Create an execution request object.
         // Create execution request.
