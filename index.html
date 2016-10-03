@@ -219,7 +219,7 @@ function handleGetDataResponse(resp) {
 jQuery(document).ready(function($) {
     $('#expenses_edit').find("input, select, button, textarea").prop("disabled", false);
     $('#expenses_edit').submit(function(event) {
-        alert('Hit the function!');
+        //alert('Hit the function!');
         $form = $('#expenses_edit');
         var $inputs = $form.find("input, select, button, textarea");
         // serialize the data in the form
@@ -228,7 +228,7 @@ jQuery(document).ready(function($) {
         // Create execution request.
 
         //console.log($inputs);
-        console.log(serializedData);
+        console.log("the data is" + serializedData);
         var request = {
             'function': 'setData',
             'parameters': serializedData,
