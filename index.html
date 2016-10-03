@@ -231,8 +231,8 @@ jQuery(document).ready(function($) {
         console.log("the data is: " + parseJSON(serializedData));
         var request = {
             'function': 'setData',
-            'parameters': serializedData//,
-            //'devMode': true // Optional.
+            'parameters': serializedData,
+            'devMode': true // Optional.
         };
 
         // Make the API request.
