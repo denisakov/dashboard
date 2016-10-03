@@ -221,9 +221,9 @@ jQuery(document).ready(function($) {
     $('#expenses_edit').submit(function(event) {
         //alert('Hit the function!');
         //$form = $(this);
-        //var $inputs = $form.find("input");
+        var $inputs = $(this).find("input, select, button, textarea");
         // serialize the data in the form
-        var serializedData = JSON.stringify(this);
+        var serializedData = JSON.stringify($inputs);
         
         // Create an execution request object.
         // Create execution request.
