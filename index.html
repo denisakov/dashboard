@@ -228,11 +228,11 @@ jQuery(document).ready(function($) {
         // Create execution request.
 
         console.log($inputs);
-        //console.log("the data is: " + serializedData.toString());
+        console.log("the data is: " + parseJSON(serializedData));
         var request = {
             'function': 'setData',
-            'parameters': serializedData,
-            'devMode': true // Optional.
+            'parameters': serializedData//,
+            //'devMode': true // Optional.
         };
 
         // Make the API request.
