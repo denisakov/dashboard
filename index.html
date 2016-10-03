@@ -223,11 +223,11 @@ jQuery(document).ready(function($) {
         $form = $('#expenses_edit');
         var $inputs = $form.find("input, select, button, textarea");
         // serialize the data in the form
-        var serializedData = $inputs.serializeObject();
+        var serializedData = $form.serializeObject();
         // Create an execution request object.
         // Create execution request.
 
-        console.log($inputs);
+        console.log($form);
         console.log("the data is: " + serializedData.values);
         var request = {
             'function': 'setData',
