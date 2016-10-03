@@ -224,11 +224,12 @@ jQuery(document).ready(function($) {
         var $inputs = $form.find("input, select, button, textarea");
         // serialize the data in the form
         var serializedData = $("#expenses_edit").serialize();
+        $( "#results" ).text( serializedData );
         // Create an execution request object.
         // Create execution request.
 
         console.log($inputs.length);
-        console.log("the data is: " + text(serializedData));
+        console.log("the data is: " + serializedData);
         var request = {
             'function': 'setData',
             'parameters': serializedData,
@@ -459,6 +460,9 @@ h2{color:#0b56a8;}
                             <input class="btn btn-primary btn-sm" type="submit" id="action_btn" value="Submit">
                         </div>
                     </form>
+                    <div>
+                        <tt id="results"></tt>
+                    </div>
                 </div>
             </div>
             <div class="tab-pane text-style" id="tab4">
