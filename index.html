@@ -200,9 +200,9 @@ function handleGetDataResponse(resp) {
     } else {
         // The structure of the result will depend upon what the Apps
         // Script function returns. 
-        console.log(resp);
+        //console.log(resp);
         var expenses = resp.response.result.expenses;
-        console.log(expenses);
+        //console.log(expenses);
         
         if (Object.keys(expenses).length == 0) {
             appendPre('No expenses included!');
@@ -223,7 +223,7 @@ jQuery(document).ready(function($) {
         $form = $('#expenses_edit');
         var $inputs = $form.find("input, select, button, textarea");
         // serialize the data in the form
-        var serializedData = $form.serializeObject($inputs);
+        var serializedData = $form.serializeObject();
         // Create an execution request object.
         // Create execution request.
 
