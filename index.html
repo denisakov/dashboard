@@ -220,15 +220,15 @@ jQuery(document).ready(function($) {
     $('#expenses_edit').find("input, select, button, textarea").prop("disabled", false);
     $('#expenses_edit').submit(function(event) {
         //alert('Hit the function!');
-        $form = $('#expenses_edit');
+        $form = $("#expenses_edit");
         var $inputs = $form.find("input, select, button, textarea");
         // serialize the data in the form
-        var serializedData = $form.serializeObject();
+        var serializedData = $("#expenses_edit").serialize();
         // Create an execution request object.
         // Create execution request.
 
         console.log($inputs.length);
-        console.log("the data is: " + serializedData.toString());
+        console.log("the data is: " + text(serializedData));
         var request = {
             'function': 'setData',
             'parameters': serializedData,
