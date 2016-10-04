@@ -222,7 +222,7 @@ jQuery(document).ready(function($) {
         //alert('Hit the function!');
         //$form = $(this);
         var $inputs = $(this).find("input, select, button, textarea");
-        var $desc = $(this).find("#desc").values;
+        var $desc = $(this).find("#desc");
         // serialize the data in the form
         var serializedData = JSON.stringify($inputs);
         
