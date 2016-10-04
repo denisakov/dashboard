@@ -221,8 +221,12 @@ jQuery(document).ready(function($) {
     $('#expenses_edit').submit(function(event) {
         //alert('Hit the function!');
         //$form = $(this);
-        //var $inputs = $(this).find("input, select, button, textarea");
-        var $inputs = $(this).find("#desc[0].value, #reason[0].value, #amount[0].value, #indicator[0].value");
+        
+        var $desc = $(this).find("#desc")[0].value;
+        var $reason = $(this).find("#reason")[0].value;
+        var $amount = $(this).find("#amount")[0].value;
+        var $indicator = $(this).find("#indicator")[0].value;
+        var $inputs = $desc +";"+ $reason +";"+ $amount +";"+ $indicator;
         // serialize the data in the form
         var serializedData = JSON.stringify($inputs);
         
@@ -230,7 +234,7 @@ jQuery(document).ready(function($) {
         // Create execution request.
 
         console.log($inputs);
-        //console.log($desc);
+        console.log(serializedData);
         console.log("the data is: " + serializedData);
         var request = {
             'function': 'setData',
