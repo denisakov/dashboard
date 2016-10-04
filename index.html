@@ -294,6 +294,19 @@ $.fn.serializeObject = function() {
     });
     return o;
 };
+
+function(){
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+  $('.nav-pills a').click(function (e) {
+    $(this).tab('show');
+    var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+    window.location.hash = this.hash;
+    $('html,body').scrollTop(scrollmem);
+  });
+}
+
 </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style>
@@ -392,14 +405,19 @@ h2{color:#0b56a8;}
                     <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade active in" id="salary">
 
+                                There will be salary info here
                                 
                             </div>
                             <div role="tabpanel" class="tab-pane" id="real_estate">
                                     
-                            Nothing here yet
+                                Nothing here yet
                                     
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="businesses">...</div>
+                            <div role="tabpanel" class="tab-pane" id="businesses">
+                            
+                                ...
+                            
+                            </div>
                     </div>
                 </div>
             </div>
