@@ -20,7 +20,8 @@ var CLIENT_ID_DASH = '689505378876-4orhjal3dio2luar4quflkfvmfh3n41k.apps.googleu
 var SCRIPT_ID_DASH = '1XQQH0QEiJB2Lcpf7EhTzNbw30qrtDw4amQnTfDvbq1HtMisKnto3SXsp';
 
 var SCOPES = ['https://www.googleapis.com/auth/spreadsheets',
-              'https://www.googleapis.com/auth/userinfo.email'];
+              'https://www.googleapis.com/auth/userinfo.email',
+              'https://www.googleapis.com/auth/drive'];
 
 //redraw graph when window resize is completed  
 $(window).on('resizeEnd', function() {
@@ -226,15 +227,15 @@ jQuery(document).ready(function($) {
         var $reason = $(this).find("#reason")[0].value;
         var $amount = $(this).find("#amount")[0].value;
         var $indicator = $(this).find("#indicator")[0].value;
-        var $inputs = $desc +';'+ $reason +';'+ $amount +';'+ $indicator;
+        var $inputs = $desc +';'+ $reason +';'+ $amount +';'+'expenses;'+ $indicator;
         // serialize the data in the form
         var serializedData = JSON.stringify($inputs);
         
         // Create an execution request object.
         // Create execution request.
 
-        console.log($inputs);
-        console.log(serializedData);
+        //console.log($inputs);
+        //console.log(serializedData);
         console.log("the data is: " + serializedData);
         var request = {
             'function': 'setData',
@@ -306,7 +307,7 @@ $(function(){
   $('.tabs a').click(function (e) {
     $(this).tab('show');
     var scrollmem = $('body').scrollTop() || $('html').scrollTop();
-    window.location.hash = this.hash.toString().replace('#','');
+    window.location.hash = this.hash;
     $('html,body').scrollTop(scrollmem);
   });
 });
