@@ -31,9 +31,9 @@ $(window).on('resizeEnd', function() {
 function drawChart(d) {
         
         var data = Object.keys(d).map(function (key) {return d[key]});
-        console.log(data);
+        //console.log(data);
         var dataTable = google.visualization.arrayToDataTable(data);
-        //console.log(dataTable);
+        console.log(dataTable);
 
         var options = {
 //            title:title4 + ' of the Free Zone',
@@ -302,7 +302,7 @@ $.fn.serializeObject = function() {
 $(function(){
   var hash = window.location.hash;
   hash && $('ul.nav a[href="' + hash + '"]').tab('show');
-  console.log(hash);
+  //console.log(hash);
 
   $('.tabs a').click(function (e) {
     $(this).tab('show');
