@@ -306,7 +306,7 @@ $(function(){
   $('.tabs a').click(function (e) {
     $(this).tab('show');
     var scrollmem = $('body').scrollTop() || $('html').scrollTop();
-    window.location.hash = this.hash.replace('#','');
+    window.location.hash = this.hash.toString().replace('#','');
     $('html,body').scrollTop(scrollmem);
   });
 });
